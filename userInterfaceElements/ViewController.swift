@@ -11,6 +11,7 @@ class ViewController: UIViewController {
 
     @IBOutlet var segmentedControl: UISegmentedControl!
     @IBOutlet var showLabel: UILabel!
+    @IBOutlet var slider: UISlider!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,16 @@ class ViewController: UIViewController {
         segmentedControl.backgroundColor = .clear
         segmentedControl.setTitle("Fifth", forSegmentAt: 0)
         segmentedControl.selectedSegmentTintColor = .white
+        
+        slider.value = 1
+        slider.minimumValue = 0
+        slider.maximumValue = 1
+        slider.minimumTrackTintColor = .red
+        slider.maximumTrackTintColor = .green
+        slider.thumbTintColor = .blue
+        
+        showLabel.text = String(slider.value)
+    
     }
     
     @IBAction func SegmentedControlButtonPressed() {
@@ -42,5 +53,12 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func sliderAction() {
+        showLabel.text = String(slider.value)
+        
+        let sliderValue = CGFloat(slider.value)
+        
+        view.backgroundColor = view.backgroundColor?.withAlphaComponent(sliderValue)
+    }
 }
 
