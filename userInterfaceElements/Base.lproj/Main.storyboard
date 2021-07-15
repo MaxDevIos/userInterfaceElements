@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="JQ2-kY-XFg">
-                                <rect key="frame" x="16" y="74" width="382" height="137.5"/>
+                                <rect key="frame" x="16" y="74" width="382" height="513.5"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="EjC-cO-j97">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="32"/>
@@ -42,6 +43,28 @@
                                             <action selector="sliderAction" destination="BYZ-38-t0r" eventType="valueChanged" id="iLC-Nc-dSa"/>
                                         </connections>
                                     </slider>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Mmg-9B-F6Z">
+                                        <rect key="frame" x="0.0" y="165.5" width="382" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hi4-II-NQ3">
+                                        <rect key="frame" x="0.0" y="227.5" width="382" height="42"/>
+                                        <color key="backgroundColor" name="AccentColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <state key="normal" title="Done">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="buttonAction" destination="BYZ-38-t0r" eventType="touchUpInside" id="07O-FY-WlI"/>
+                                        </connections>
+                                    </button>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="4zh-ym-l9o">
+                                        <rect key="frame" x="0.0" y="297.5" width="382" height="216"/>
+                                        <connections>
+                                            <action selector="datePickerAction" destination="BYZ-38-t0r" eventType="valueChanged" id="aBl-S7-qnf"/>
+                                        </connections>
+                                    </datePicker>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -54,9 +77,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="button" destination="hi4-II-NQ3" id="ASI-14-Luo"/>
+                        <outlet property="datePicker" destination="4zh-ym-l9o" id="CB0-RQ-uhB"/>
                         <outlet property="segmentedControl" destination="EjC-cO-j97" id="CwV-LN-G9I"/>
                         <outlet property="showLabel" destination="3pR-CL-A4W" id="9ME-Z9-xGL"/>
                         <outlet property="slider" destination="osE-jt-nuL" id="Ntz-eJ-tdx"/>
+                        <outlet property="textField" destination="Mmg-9B-F6Z" id="LKc-tw-pAz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -65,6 +91,9 @@
         </scene>
     </scenes>
     <resources>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
